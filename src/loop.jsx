@@ -11,9 +11,9 @@ import DrawId from './draw_id';
 let detector = new AR.Detector();
 
 let loop = (video) => {
-  Context.drawImage(video, 0, 0, 800, 600);
+  Context.drawImage(video, 0, 0, 400, 300);
 
-  let imageData = Context.getImageData(0, 0, 800, 600);
+  let imageData = Context.getImageData(0, 0, 400, 300);
   let markers = detector.detect(imageData);
 
   DrawCorners(markers);
