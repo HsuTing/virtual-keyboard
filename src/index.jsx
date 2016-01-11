@@ -1,35 +1,31 @@
 'use strict';
 
-
 (() => {
-  let video = document.getElementById("video");
-  let canvas = document.getElementById("canvas");
-  let context = canvas.getContext("2d");
-    
-  canvas.width = parseInt(canvas.style.width);
-  canvas.height = parseInt(canvas.style.height);
-     
-  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-  if(navigator.getUserMedia) {    
-    let successCallback = (stream) => {
-      if(window.URL) {
-        video.src = window.URL.createObjectURL(stream);
-      }
-      else if(video.mozSrcObject !== undefined) {
-        video.mozSrcObject = stream;
-      }
-      else {
+  window.addEventListener("DOMContentLoaded", () => {
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+    let video = document.getElementById("video");
+    let videoObj = { "video": true };
+    let errBack = (error) => {
+      alert("Can not capture camera.");
+    };
+
+    if(navigator.getUserMedia) {
+      navigator.getUserMedia(videoObj, (stream) => {
         video.src = stream;
-      }
+        video.play();
+      }, errBack);
+    } else if(navigator.webkitGetUserMedia) {
+      navigator.webkitGetUserMedia(videoObj, (stream) => {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+      }, errBack);
     }
-        
-    let errorCallback = (error) => {
-      alert("Something is error.");
+    else if(navigator.mozGetUserMedia) {
+      navigator.mozGetUserMedia(videoObj, (stream) => {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+      }, errBack);
     }
-        
-    navigator.getUserMedia({video: true}, successCallback, errorCallback);
-  }
-  else {
-    alert("Webcam can not open.");
-  }
+  }, false);
 })();
