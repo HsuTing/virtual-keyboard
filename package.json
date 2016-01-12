@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/HsuTing/virtual-keyboard#readme",
   "dependencies": {
+    "jquery": "^2.2.0",
     "webpack": "^1.12.10"
   },
   "devDependencies": {
