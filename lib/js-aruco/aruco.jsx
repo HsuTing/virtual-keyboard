@@ -172,9 +172,10 @@ AR.Detector.prototype.getMarker = function(imageSrc, candidate){
     }
   }
 
-  if (0 !== pair.first){
+/*  if (0 !== pair.first){
     return null;
   }
+*/
 
   return new AR.Marker(
     this.mat2id( rotations[pair.second] ), 
