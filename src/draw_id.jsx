@@ -3,24 +3,9 @@
 import $ from 'jquery';
 
 import {
-  Context as Context
+  Context as Context,
+  List as List
 } from './constant';
-
-let list = {
-  '1007': 'A',
-  '827': 'B',
-  '787': 'C',
-  '140': 'J',
-  '750': 'K',
-  '3': 'L',
-  '955': 'M',
-  '425': 'Q',
-  '179': 'R',
-  '48': 'T',
-  '393': 'V',
-  '204': 'X',
-  '666': 'Y'
-};
 
 export default (markers) => {
   Context.strokeStyle = "blue";
@@ -42,9 +27,16 @@ export default (markers) => {
     check[markers[i].id] = true;
   }
 
-  for(let num in list) {
-    if(!check[num]) {
-      $('#info').html(list[num]);
+  if(Object.keys(check).length == 0) {
+    $('#info').html('');
+    return;
+  }
+
+  let html = "";
+  for(let num in List) {
+    if(num in check) {
+      html += List[num].label + " ";
     }
   }
+  $('#info').html(html);
 };
