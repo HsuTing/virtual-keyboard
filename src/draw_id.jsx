@@ -66,4 +66,6 @@ export default (markers, count) => {
       count[ List[num].label ] = 0;
     }
   }
+
+  $('#info').html(html);
 };
