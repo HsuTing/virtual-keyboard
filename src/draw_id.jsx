@@ -12,7 +12,7 @@ export default (markers) => {
   Context.lineWidth = 1;
   let check = {}; 
  
-  for (let i = 0; i < markers.length; i++){
+  for (let i in markers){
     let corners = markers[i].corners;
     let x = Infinity;
     let y = Infinity;
@@ -34,8 +34,19 @@ export default (markers) => {
 
   let html = "";
   for(let num in List) {
-    if(num in check) {
-      html += List[num].label + " ";
+    if(!(num in check)) {
+      let check_parent = false;
+
+      for(let parent_id in List[num].parent) {
+        let parent_num = List[num].parent[parent_id];
+        if(parent_num in check) {
+          check_parent = true;
+        }
+      }
+
+      if(!check_parent) {
+        html += List[num].label + " ";
+      }
     }
   }
   $('#info').html(html);
