@@ -7,7 +7,7 @@ import {
   List as List
 } from './constant';
 
-export default (markers) => {
+export default (markers, count) => {
   Context.strokeStyle = "blue";
   Context.lineWidth = 1;
   let check = {}; 
@@ -29,10 +29,12 @@ export default (markers) => {
 
   if(Object.keys(check).length == 0) {
     $('#info').html('');
+    for(let i in count) {
+      count[i] = 0;
+    }
     return;
   }
 
-  let html = "";
   for(let num in List) {
     if(!(num in check)) {
       let check_parent = false;
@@ -45,9 +47,20 @@ export default (markers) => {
       }
 
       if(!check_parent) {
-        html += List[num].label + " ";
+        count[ List[num].label ] = count[ List[num].label ] * 1 + 1;
+      }
+      else {
+        count[ List[num].label ] = 0;
       }
     }
   }
+
+  let html = "";
+  for(let i in count) {
+    if(count[i] > 50) {
+      html += i;
+    }
+  }
+
   $('#info').html(html);
 };

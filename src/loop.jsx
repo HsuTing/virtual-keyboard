@@ -10,16 +10,16 @@ import DrawId from './draw_id';
 
 let detector = new AR.Detector();
 
-let loop = (video) => {
+let loop = (video, count) => {
   Context.drawImage(video, 0, 0, 400, 300);
 
   let imageData = Context.getImageData(0, 0, 400, 300);
   let markers = detector.detect(imageData);
 
   DrawCorners(markers);
-  DrawId(markers);
+  DrawId(markers, count);
 
-  setTimeout(() => { loop(video); }, 1);
+  setTimeout(() => { loop(video, count); }, 1);
 };
 
 export default loop;
