@@ -16,15 +16,15 @@ export default (keycode) => {
       if(objy - 20 > 0)
         objy = objy - 20;  
       break;
-    case "S":
+    case "D":
       if(objx + 20 < canvas.width)
         objx = objx + 20;
       break;
-    case "A":
-      if(objy+20 < canvas.height)
+    case "S":
+      if(objy + 20 < canvas.height)
         objy = objy+20;
       break;
-    case "D":
+    case "A":
       if(objx - 20 > 0)
         objx = objx - 20;
       break;
