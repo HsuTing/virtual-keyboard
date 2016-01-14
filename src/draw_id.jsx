@@ -37,6 +37,7 @@ export default (markers, count) => {
     return;
   }
 
+  let html = "";
   for(let num in List) {
     if(!(num in check)) {
       let check_parent = false;
@@ -50,6 +51,11 @@ export default (markers, count) => {
 
       if(!check_parent) {
         count[ List[num].label ] = count[ List[num].label ] * 1 + 1;
+        if(count[i] > 100) {
+          html += i;
+          Game(i);
+          count[i] = 0;
+        }
       }
       else {
         count[ List[num].label ] = 0;
@@ -59,14 +65,4 @@ export default (markers, count) => {
       count[ List[num].label ] = 0;
     }
   }
-
-  let html = "";
-  for(let i in count) {
-    if(count[i] > 50) {
-      html += i;
-      Game(i);
-    }
-  }
-
-  $('#info').html(html);
 };
