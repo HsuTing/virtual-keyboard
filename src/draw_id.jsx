@@ -50,11 +50,12 @@ export default (markers, count) => {
       }
 
       if(!check_parent) {
-        count[ List[num].label ] = count[ List[num].label ] * 1 + 1;
-        if(count[i] > 100) {
-          html += i;
-          Game(i);
-          count[i] = 0;
+        let count_id = List[num].label;
+        count[count_id] = count[count_id] * 1 + 1;
+        if(count[count_id] > 100) {
+          html += count_id;
+          Game(count_id);
+          count[count_id] = 0;
         }
       }
       else {
