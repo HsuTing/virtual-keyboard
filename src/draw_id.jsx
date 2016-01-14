@@ -55,6 +55,9 @@ export default (markers, count) => {
         count[ List[num].label ] = 0;
       }
     }
+    else {
+      count[ List[num].label ] = 0;
+    }
   }
 
   let html = "";
