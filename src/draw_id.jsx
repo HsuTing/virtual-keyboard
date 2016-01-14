@@ -43,7 +43,7 @@ export default (markers, count) => {
 
       for(let parent_id in List[num].parent) {
         let parent_num = List[num].parent[parent_id];
-        if(parent_num in check) {
+        if(!(parent_num in check)) {
           check_parent = true;
         }
       }
