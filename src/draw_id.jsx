@@ -7,6 +7,8 @@ import {
   List as List
 } from './constant';
 
+import Game from './game/game';
+
 export default (markers, count) => {
   Context.strokeStyle = "blue";
   Context.lineWidth = 1;
@@ -59,6 +61,7 @@ export default (markers, count) => {
   for(let i in count) {
     if(count[i] > 50) {
       html += i;
+      Game(i);
     }
   }
 
