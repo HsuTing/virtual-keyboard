@@ -4,11 +4,9 @@ let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 let list = {
   '0': { 'label': 'A', 'parent': ['16'] },
-  //'0': { 'label': 'A', 'parent': [] },
   '1': { 'label': 'B', 'parent': ['6', '19'] },
   '2': { 'label': 'C', 'parent': ['3', '4'] },
   '3': { 'label': 'D', 'parent': ['4'] },
-  //'3': { 'label': 'D', 'parent': [] },
   '4': { 'label': 'E', 'parent': [] },
   '5': { 'label': 'F', 'parent': ['17'] },
   '6': { 'label': 'G', 'parent': ['19'] },

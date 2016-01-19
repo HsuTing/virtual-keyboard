@@ -52,7 +52,7 @@ export default (markers, count) => {
       if(!check_parent) {
         let count_id = List[num].label;
         count[count_id] = count[count_id] * 1 + 1;
-        if(count[count_id] > 100) {
+        if(count[count_id] > 60) {
           html += count_id;
           Game(count_id);
           count[count_id] = 0;
