@@ -22,4 +22,7 @@
 ## How to use
 
 - Print keyboard
+
 ![keyboard](https://raw.githubusercontent.com/HsuTing/virtual-keyboard/gh-pages/img/keyboard.jpg?raw=true "keyboard")
+
+- Then, you just need to open camera.
