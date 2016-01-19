@@ -18,3 +18,8 @@
 ## Referrence
 
 - [js-aruco](https://github.com/jcmellado/js-aruco)
+
+## How to use
+
+- Print keyboard
+![keyboard](https://raw.githubusercontent.com/HsuTing/virtual-keyboard/gh-pages/img/keyboard.jpg?raw=true "keyboard")
