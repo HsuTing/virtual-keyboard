@@ -14,3 +14,7 @@
 ```
   ./node_modules/.bin/webpack
 ```
+
+## Referrence
+
+- [js-aruco](https://github.com/jcmellado/js-aruco)
