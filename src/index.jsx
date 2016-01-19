@@ -1,5 +1,7 @@
 'use strict';
 
+import $ from 'jquery';
+
 import Loop from './loop';
 import GameInit from './game/init';
 
@@ -11,6 +13,10 @@ let count = {
 
 (() => {
   GameInit();
+  $('#clear').click(() => {
+    $('#info').html('');
+  });
+
   window.addEventListener("DOMContentLoaded", () => {
     let video = document.getElementById("video");
     let videoObj = { "video": true };

@@ -30,13 +30,13 @@ export default (markers, count) => {
   }
 
   if(Object.keys(check).length == 0) {
-    $('#info').html('');
     for(let i in count) {
       count[i] = 0;
     }
     return;
   }
 
+  let html = "";
   for(let num in List) {
     if(!(num in check)) {
       let check_parent = false;
@@ -54,6 +54,7 @@ export default (markers, count) => {
         if(count[count_id] > 60) {
           Game(count_id);
           count[count_id] = 0;
+          html += count_id;
         }
       }
       else {
@@ -64,4 +65,5 @@ export default (markers, count) => {
       count[ List[num].label ] = 0;
     }
   }
+  $('#info').append(html);
 };
